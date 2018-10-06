@@ -1,6 +1,6 @@
 {
   "name": "cerebro-plugin-fantastical",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cerebro plugin to quickly add to Fantastical",
   "license": "MIT",
   "repository": "codingmatty/cerebro-plugin-fantastical",
