@@ -13,14 +13,21 @@ export const fn = ({ term, display, actions }) => {
     // "fantastical add"
     if (!subCommand || 'add'.startsWith(subCommand)) {
       if ('add' === subCommand) {
-        const sentence = cmdArgs.join(' ');
+        let sentence = cmdArgs.join(' ');
 
         if (sentence) {
+          const addImmediately = sentence.endsWith('!') ? 1 : 0;
+          if (addImmediately) {
+            sentence = sentence.slice(0, -1);
+          }
           display({
             icon: fantasticalIcon,
             title: 'Add to Fantastical',
             subtitle: sentence,
-            onSelect: () => actions.open(`x-fantastical2://parse?s=${sentence}`)
+            onSelect: () =>
+              actions.open(
+                `x-fantastical2://parse?s=${sentence}&add=${addImmediately}`
+              )
           });
         } else {
           display({
